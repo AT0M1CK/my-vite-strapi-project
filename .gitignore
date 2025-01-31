@@ -7,18 +7,84 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Dependency directories
 node_modules
+.pnp
+.pnp.js
+
+# Build directories
 dist
 dist-ssr
-*.local
+out
+.next
+.nuxt
+.cache
+build
+
+# Local environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
 
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
-.idea
+.idea/
 .DS_Store
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
+Thumbs.db
+
+# OS-specific files
+*.swp
+*.lock
+*.bak
+*.tmp
+*.orig
+*.seed
+*.pid
+*.pid.lock
+*.sock
+ehthumbs.db
+desktop.ini
+
+# TypeScript
+*.tsbuildinfo
+
+# Next.js
+.vercel
+.netlify
+
+# Firebase
+.firebase/
+.firebaserc
+
+# Yarn/PNPM lockfiles
+yarn.lock
+pnpm-lock.yaml
+
+# Jest & Testing
+coverage
+.nyc_output
+
+# Cypress
+cypress/videos
+cypress/screenshots
+
+# Storybook
+.storybook-out
+
+# Docker
+docker-compose.override.yml
+.dockerignore
+
+# Miscellaneous
+.npm/
+.eslintcache
+.stylelintcache
+.prettier_cache
