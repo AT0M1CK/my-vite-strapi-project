@@ -7,6 +7,8 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { useState } from "react";
 import { useMutation, gql } from "@apollo/client";
 import RegisterForm from "./RegisterForm";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "@/context/AuthContext";
 
 export enum FormStateType {
   LOGIN,
@@ -27,6 +29,9 @@ const LOGIN_MUTATION = gql`
 `;
 
 const LoginPage: React.FC = () => {
+  const { login } = useAuth(); // Using AuthContext
+  const navigate = useNavigate();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -34,15 +39,26 @@ const LoginPage: React.FC = () => {
     FormStateType.LOGIN
   );
 
-  const [login, { loading, error, data }] = useMutation(LOGIN_MUTATION);
+  const [userLogin, { loading, error, data }] = useMutation(LOGIN_MUTATION);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const { data } = await login({
+      const { data } = await userLogin({
         variables: { identifier: email, password },
       });
-      console.log("login success", data.login.user.username);
+
+      if (data?.login) {
+        login({
+          id: data.login.user.id,
+          username: data.login.user.username,
+          email: data.login.user.email,
+          token: data.login.jwt,
+        });
+
+        console.log("Login Success:", data.login.user.username);
+        navigate("/homepage"); // Redirect to dashboard
+      }
     } catch (e) {
       if (error) console.error("login error", error.message);
     }
