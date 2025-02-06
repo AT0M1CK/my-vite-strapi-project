@@ -11,6 +11,7 @@ module.exports = {
         sm: "calc(var(--radius) - 4px)",
       },
       colors: {
+        softGreen: "#2DB813",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         card: {

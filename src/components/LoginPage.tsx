@@ -80,7 +80,7 @@ const LoginPage: React.FC = () => {
         transition={{ duration: 0.5 }}
         className="w-full max-w-md"
       >
-        <div className="flex flex-col shadow-2xl w-[450px] rounded-2xl p-8 space-y-6 bg-white text-center">
+        <div className="flex flex-col shadow-2xl w-[450px] rounded-md p-8 space-y-6 bg-white text-center">
           {formState === FormStateType.REGISTER ? (
             <RegisterForm handleFormState={handleFormState} />
           ) : (

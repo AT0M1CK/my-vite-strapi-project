@@ -3,7 +3,7 @@ import { useAuth } from "@/context/AuthContext";
 
 const ProtectedRoute = () => {
   const { user } = useAuth();
-  return user ? <Outlet /> : <Navigate to="/" />;
+  return user?.token ? <Outlet /> : <Navigate to="/" />;
 };
 
 export default ProtectedRoute;
