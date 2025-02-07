@@ -9,6 +9,7 @@ import Header from "./components/Header";
 import LoginPage from "./components/LoginPage";
 import HomePage from "./components/ HomePage";
 import ProtectedRoute from "./components/ProtectedRoute";
+import { Toaster } from "@/components/ui/toaster";
 
 const client = new ApolloClient({
   uri: "http://localhost:1337/graphql",
@@ -34,6 +35,7 @@ function LayoutWrapper({ children }: { children: React.ReactNode }) {
           }`}
         >
           <main className="h-full p-4">{children}</main>
+          <Toaster />
         </div>
       </div>
     </>

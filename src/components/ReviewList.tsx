@@ -1,7 +1,7 @@
 import { useQuery, gql, TypedDocumentNode } from "@apollo/client";
 import ReviewCard from "./ReviewCard";
 import { useAuth } from "@/context/AuthContext";
-import { Button } from "./ui/button";
+import AddNewReview from "./AddNewReview";
 
 interface Review {
   id: string;
@@ -70,7 +70,7 @@ const ReviewList = () => {
           );
         })}
         <div>
-          <Button className="my-3 mx-2 rounded-md">Add Review</Button>
+          <AddNewReview />
         </div>
       </div>
     </>
